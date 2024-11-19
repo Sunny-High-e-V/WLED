@@ -1,0 +1,41 @@
+{
+    "build": {
+      "arduino":{
+        "ldscript": "esp32_out.ld",
+      "partitions": "default_16MB.csv"
+      },
+      "core": "esp32",
+      "extra_flags": "-D BOARD_HAS_PSRAM -D WLED_USE_PSRAM_JSON -D WLED_DISABLE_ALEXA -D WLED_DISABLE_HUESYNC -D WLED_USE_ETHERNET -D LEDPIN=2 -D IRPIN=35 -D SERVERNAME='\"Sunny WLED\"' -D UM_AUDIOREACTIVE_ENABLE -D SR_DMTYPE=5 -D I2S_WSPIN=13 -D I2S_SDPIN=34 -D AUDIOPIN=36",
+      "f_cpu": "240000000L",
+      "f_flash": "80000000L",
+      "flash_mode": "qio",
+      "mcu": "esp32",
+      "variants_dir": "variants",
+      "variant": "esp32-sunnyesp-v03",
+      "comment": "variant ttgo-t7-v14-mini32 is some wrover thing. esp32-sunnyesp-v03 is actually intended but needs a custom variant created. Also, audioreactive is not compatible with DMX -D WLED_ENABLE_DMX for some reason *shocked*"
+
+    },
+    "connectivity": [
+      "wifi",
+      "bluetooth",
+      "ethernet",
+      "can"
+    ],
+    "debug": {
+      "openocd_board": "esp32-wrover.cfg"
+    },
+    "frameworks": [
+      "arduino",
+      "espidf"
+    ],
+    "name": "sunnyESP ESP32 Module v0.3",
+    "upload": {
+      "flash_size": "16MB",
+      "maximum_ram_size": 327680,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "speed": 460800
+    },
+    "url": "https://en.wikipedia.org/wiki/ESP32",
+    "vendor": "Sunny-Stefan"
+  }
