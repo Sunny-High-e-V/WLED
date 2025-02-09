@@ -146,9 +146,9 @@ const ethernet_settings ethernetBoards[] = {
     ETH_CLOCK_GPIO0_OUT	// eth_clk_mode
   },
 
-  // ESP32-V4-sunnyESP
+  // sunnyESP-v03
   {
-    4,                    // eth_address, might be 0 or 4, depending on whether the pull-down of KSZ wins, or the pull-up of the ESP BOOT pin(GPIO0 clk input)
+    4,                    // eth_address, 4 because GPIO0 on ESP needs to be high which is also an addr strapping pin for the KSZ. Alternatively use 0 as broadcast addr.
     5,                    // eth_power,
     23,                   // eth_mdc,
     18,                   // eth_mdio,
