@@ -102,8 +102,12 @@ void appendGPIOinfo(Print& settingsScript) {
   }
   #ifdef WLED_ENABLE_DMX
   if (!firstPin) settingsScript.print(',');
-  settingsScript.print(2); // DMX hardcoded pin
+  settingsScript.print(DMX_TXPIN); // DMX hardcoded pin
   firstPin = false;
+  #if defined(DMX_RXPIN) && DMX_RXPIN != -1
+  settingsScript.print(',');
+  settingsScript.print(DMX_RXPIN);
+  #endif
   #endif
   #if defined(WLED_DEBUG) && !defined(WLED_DEBUG_HOST)
   if (!firstPin) settingsScript.print(',');
