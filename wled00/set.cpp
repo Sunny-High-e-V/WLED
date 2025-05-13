@@ -178,12 +178,12 @@ void handleSettingsSet(AsyncWebServerRequest *request, byte subPage)
       uint16_t freq = request->arg(sp).toInt();
       if (Bus::isPWM(type)) {
         switch (freq) {
-          case 0 : freq = WLED_PWM_FREQ/2;    break;
-          case 1 : freq = WLED_PWM_FREQ*2/3;  break;
+          case 0 : freq = 81;    break;
+          case 1 : freq = 121;  break;
           default:
-          case 2 : freq = WLED_PWM_FREQ;      break;
-          case 3 : freq = WLED_PWM_FREQ*2;    break;
-          case 4 : freq = WLED_PWM_FREQ*10/3; break; // uint16_t max (19531 * 3.333)
+          case 2 : freq = 201;      break;
+          case 3 : freq = 407;    break;
+          case 4 : freq = 987; break; // uint16_t max (19531 * 3.333)
         }
       } else if (Bus::is2Pin(type)) {
         switch (freq) {

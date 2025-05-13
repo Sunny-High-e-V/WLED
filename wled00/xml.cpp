@@ -331,12 +331,12 @@ void getSettingsJS(byte subPage, Print& settingsScript)
       unsigned speed = bus->getFrequency();
       if (bus->isPWM()) {
         switch (speed) {
-          case WLED_PWM_FREQ/2    : speed = 0; break;
-          case WLED_PWM_FREQ*2/3  : speed = 1; break;
+          case 81    : speed = 0; break;
+          case 121  : speed = 1; break;
           default:
-          case WLED_PWM_FREQ      : speed = 2; break;
-          case WLED_PWM_FREQ*2    : speed = 3; break;
-          case WLED_PWM_FREQ*10/3 : speed = 4; break; // uint16_t max (19531 * 3.333)
+          case 201      : speed = 2; break;
+          case 407    : speed = 3; break;
+          case 987 : speed = 4; break; // uint16_t max (19531 * 3.333)
         }
       } else if (bus->is2Pin()) {
         switch (speed) {
