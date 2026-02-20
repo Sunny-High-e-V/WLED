@@ -620,6 +620,29 @@
   #define HW_PIN_SDA SDA
 #endif
 
+#ifdef WLED_ENABLE_DMX
+  #ifdef DMX_RXPIN
+    #if DMX_RXPIN == -1
+      #define DMX_SEND_ONLY // this disables DMX receiving features, and saves us two GPIO pins
+    #endif
+  #else
+    #define DMX_SEND_ONLY
+  #endif
+  #if defined(ESP8266)
+    #if (defined(DMX_TXPIN) || defined(DMX_RXPIN))
+      #error ESP8266 cannot change default DMX Serial1 TX GPIO 2 and RX GPIO 8.
+    #endif
+    #define DMX_TXPIN 2
+    #define DMX_RXPIN 8
+  #endif
+  #ifndef DMX_TXPIN
+    #define DMX_TXPIN -1
+  #endif
+  #ifndef DMX_RXPIN
+    #define DMX_RXPIN -1
+  #endif
+#endif
+
 // HW_PIN_SCLKSPI & HW_PIN_MOSISPI & HW_PIN_MISOSPI are used for information in usermods settings page and usermods themselves
 // which GPIO pins are actually used in a hardware layout (controller board)
 #if defined(SPISCLKPIN) && !defined(HW_PIN_CLOCKSPI)

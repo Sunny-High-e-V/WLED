@@ -14,7 +14,7 @@ Distributed as-is; no warranty is given.
 ******************************************************************************/
 
 /* ----- LIBRARIES ----- */
-#if defined(ARDUINO_ARCH_ESP32)
+#if defined(ARDUINO_ARCH_ESP32) && defined(WLED_ENABLE_DMX)
 
 #include <Arduino.h>
 #if !defined(CONFIG_IDF_TARGET_ESP32C3)  && !defined(CONFIG_IDF_TARGET_ESP32S2)
@@ -31,8 +31,8 @@ Distributed as-is; no warranty is given.
 #define BREAKFORMAT    SERIAL_8N1
 
 static const int enablePin = -1;		// disable the enable pin because it is not needed
-static const int rxPin = -1;       // disable the receiving pin because it is not needed - softhack007: Pin=-1 means "use default" not "disable"
-static const int txPin = 2;        // transmit DMX data over this pin (default is pin 2)
+static const int rxPin = DMX_RXPIN;       // disable the receiving pin because it is not needed - softhack007: Pin=-1 means "use default" not "disable"
+static const int txPin = DMX_TXPIN;        // transmit DMX data over this pin (default is pin 2)
 
 //DMX value array and size. Entry 0 will hold startbyte, so we need 512+1 elements
 static uint8_t dmxData[dmxMaxChannel+1] = { 0 };

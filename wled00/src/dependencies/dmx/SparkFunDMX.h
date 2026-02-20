@@ -8,18 +8,17 @@ Development environment specifics:
 Arduino IDE 1.6.4
 
 This code is released under the [MIT License](http://opensource.org/licenses/MIT).
-Please review the LICENSE.md file included with this example. If you have any questions 
+Please review the LICENSE.md file included with this example. If you have any questions
 or concerns with licensing, please contact techsupport@sparkfun.com.
 Distributed as-is; no warranty is given.
 ******************************************************************************/
 
 #include <inttypes.h>
+#include "const.h"
 
 
 #ifndef SparkFunDMX_h
 #define SparkFunDMX_h
-
-#define DMX_SEND_ONLY // this disables DMX sending features, and saves us two GPIO pins
 
 // ---- Methods ----
 
