@@ -144,6 +144,16 @@ const ethernet_settings ethernetBoards[] = {
     18,			              // eth_mdio,
     ETH_PHY_LAN8720,      // eth_type,
     ETH_CLOCK_GPIO0_OUT	// eth_clk_mode
+  },
+
+  // sunnyESP-v03
+  {
+    4,                    // eth_address, 4 because GPIO0 on ESP needs to be high which is also an addr strapping pin for the KSZ. Alternatively use 0 as broadcast addr.
+    5,                    // eth_power,
+    23,                   // eth_mdc,
+    18,                   // eth_mdio,
+    ETH_PHY_KSZ8081,      // eth_type,
+    ETH_CLOCK_GPIO0_IN    // eth_clk_mode
   }
 };
 #endif

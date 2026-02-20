@@ -1,0 +1,41 @@
+{
+    "build": {
+      "arduino":{
+        "partitions": "default_16MB.csv",
+        "ldscript": "esp32_out.ld",
+        "memory_type": "qio_qspi"
+      },
+      "core": "esp32",
+      "extra_flags": "-D BOARD_HAS_PSRAM -D WLED_USE_PSRAM_JSON -D DATA_PINS=2 -D IRPIN=35 -D SERVERNAME='\"Sunny WLED\"' -D UM_AUDIOREACTIVE_ENABLE -D SR_DMTYPE=5 -D I2S_WSPIN=13 -D I2S_SDPIN=34 -D I2S_CKPIN=-1 -D MCLK_PIN=-1 -D AUDIOPIN=36 -D WLED_USE_ETHERNET -D WLED_ETH_DEFAULT=13",
+      "f_cpu": "240000000L",
+      "f_flash": "80000000L",
+      "flash_mode": "qio",
+      "mcu": "esp32",
+      "variants_dir": "variants",
+      "variant": "esp32-sunnyesp-v03",
+      "comment": "audioreactive is not compatible with DMX -D WLED_ENABLE_DMX for some reason *shocked*"
+    },
+    "connectivity": [
+      "wifi",
+      "bluetooth",
+      "ethernet",
+      "can"
+    ],
+    "debug": {
+      "openocd_board": "esp32-wrover.cfg"
+    },
+    "frameworks": [
+      "arduino",
+      "espidf"
+    ],
+    "name": "sunnyESP ESP32 Module v0.3",
+    "upload": {
+      "flash_size": "16MB",
+      "maximum_ram_size": 327680,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "speed": 921600
+    },
+    "url": "https://en.wikipedia.org/wiki/ESP32",
+    "vendor": "Sunny-Stefan"
+  }
